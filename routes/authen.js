@@ -4,9 +4,10 @@ const mongoose = require("mongoose");
 const User = mongoose.model("User")
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const {JWT_SECRET} =require('../valuekeys')
+require('dotenv').config();
 const requireLogin = require("../middleware/requireLogin")
 
+const JWT_SECRET = process.env.JWT_SECRET;
 router.get("/",(req,res)=>{
     res.send("Hello World")
 })

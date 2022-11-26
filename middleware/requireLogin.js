@@ -1,8 +1,9 @@
 const jwt = require("jsonwebtoken");
-const {JWT_SECRET} = require("../valuekeys.js")
+require('dotenv').config();
 const mongoose = require('mongoose');
 const User = mongoose.model("User")
 
+const JWT_SECRET = process.env.JWT_SECRET;
 module.exports = (req,res,next)=>{
     const {authorization} = req.headers;
     if(!authorization){

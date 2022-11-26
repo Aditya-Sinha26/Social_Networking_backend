@@ -1,11 +1,12 @@
 const express = require("express");
 const app = express()
 const mongoose = require("mongoose");
-const {MONGOURI} =require("./valuekeys.js")
-const PORT = 5000
+// const {MONGOURI} =require("./valuekeys.js")
+const PORT = 5000;
+require('dotenv').config();
 
-
-mongoose.connect(MONGOURI);
+const mongoURI = process.env.MONGOURI;
+mongoose.connect(mongoURI);
 
 mongoose.connection.on('connected',()=>{
     console.log("We are connected to the server i.e. MONGO DB");
